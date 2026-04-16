@@ -16,11 +16,10 @@ A comprehensive, full-stack enterprise solution developed using **ASP.NET Core M
 
 ## Technical Architecture & Stack
 
-* **Backend**: **C#**, **ASP.NET Core MVC 8.0** (Primary Development Focus).
+* **Backend**: **C#**, **ASP.NET Core MVC 9.0** (Primary Development Focus).
 * **Database Layer**: **Entity Framework Core**, **SQL Server**.
 * **Design Patterns**: **Repository Pattern**, **Unit of Work**, **Dependency Injection (DI)**.
 * **Data Handling**: Implementation of **DTOs (Data Transfer Objects)** for secure and efficient data mapping.
-* **Optimization**: **In-Memory Caching** integrated to minimize database overhead and enhance response times for frequently accessed data.
 
 > **Note on UI/UX Implementation**: While the system features a responsive interface built with HTML5, CSS3, and Bootstrap, the **Frontend components were developed with AI assistance**. This strategic choice allowed for a concentrated focus on **Backend Logic, Database Design, and API Architecture**, ensuring the system’s core is built to production standards.
 
@@ -28,14 +27,34 @@ A comprehensive, full-stack enterprise solution developed using **ASP.NET Core M
 
 ## Project Previews
 
+### Departments Management
+<img width="1907" height="747" alt="image" src="https://github.com/user-attachments/assets/0ae6a6c8-7fcb-4549-83f6-f8f5afae8360" />
+<img width="1905" height="831" alt="image" src="https://github.com/user-attachments/assets/b53095b8-0cc4-48ee-8c88-b2ea92d97cc3" />
+
+
 ### Medical Staff Directory
-(Insert Screenshot Here)
+<img width="1768" height="908" alt="image" src="https://github.com/user-attachments/assets/999880ce-5a36-4e9e-9f16-5f57cc4826b1" />
+<img width="1896" height="901" alt="image" src="https://github.com/user-attachments/assets/0e1f6a34-497a-4cd7-812e-d8ca004f9c5d" />
+<img width="1892" height="845" alt="image" src="https://github.com/user-attachments/assets/d5f5b4ec-9a7e-4f5c-95a4-c8cc8b168c85" />
+<img width="1893" height="870" alt="image" src="https://github.com/user-attachments/assets/cd3a8564-1ec7-4efd-8ad6-f3a3ae6a7990" />
+
 
 ### Appointment Management
-(Insert Screenshot Here)
+<img width="1700" height="858" alt="image" src="https://github.com/user-attachments/assets/184c1b1c-3c7c-4936-8f34-68a3d7113397" />
+<img width="1918" height="900" alt="image" src="https://github.com/user-attachments/assets/48eca9b4-f70c-4c71-b4f5-947946b1fb25" />
+<img width="1892" height="878" alt="image" src="https://github.com/user-attachments/assets/17931af2-3ad0-49d2-8330-039aae1d310a" />
+<img width="1887" height="889" alt="image" src="https://github.com/user-attachments/assets/6246bf44-2181-4958-86eb-b6f174676e88" />
+
+<img width="1893" height="906" alt="image" src="https://github.com/user-attachments/assets/70c949c6-bee3-4366-b6cc-f8628a6b660f" />
+
 
 ### Patient Medical History
-(Insert Screenshot Here)
+<img width="1893" height="833" alt="image" src="https://github.com/user-attachments/assets/30fbfaad-b486-40ac-ba69-316ce320c5f1" />
+
+
+### Accessed Pages Authorization
+<img width="1882" height="884" alt="image" src="https://github.com/user-attachments/assets/59a21902-f311-42fd-9c09-0705c681902c" />
+
 
 ---
 
