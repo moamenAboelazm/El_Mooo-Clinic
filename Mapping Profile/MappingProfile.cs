@@ -13,6 +13,8 @@ namespace El_Mooo_Clinic.Profiles
             CreateMap<DtoDepartment.UpdateDTO, ClsDepartment>();
 
             CreateMap<ClsDepartment, DtoDepartment.ReadDTO>();
+            
+            CreateMap<ClsAppointments, DtoAppointment>();
 
             //----------------------------------------------------------------------------
 
