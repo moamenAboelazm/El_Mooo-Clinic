@@ -45,6 +45,11 @@ A comprehensive, full-stack enterprise solution developed using **ASP.NET Core M
 <img width="1916" height="854" alt="image" src="https://github.com/user-attachments/assets/74f5b54d-17e6-4089-b5ab-29b92a2200be" />
 
 
+### Patient Medical History
+<img width="1828" height="911" alt="image" src="https://github.com/user-attachments/assets/ca22d977-9ca7-4dcc-b5ca-4a1e478cb71e" />
+<img width="1893" height="833" alt="image" src="https://github.com/user-attachments/assets/30fbfaad-b486-40ac-ba69-316ce320c5f1" />
+
+
 ### Appointment Management
 <img width="1700" height="858" alt="image" src="https://github.com/user-attachments/assets/184c1b1c-3c7c-4936-8f34-68a3d7113397" />
 <img width="1918" height="900" alt="image" src="https://github.com/user-attachments/assets/48eca9b4-f70c-4c71-b4f5-947946b1fb25" />
@@ -52,11 +57,6 @@ A comprehensive, full-stack enterprise solution developed using **ASP.NET Core M
 <img width="1887" height="889" alt="image" src="https://github.com/user-attachments/assets/6246bf44-2181-4958-86eb-b6f174676e88" />
 <img width="1886" height="867" alt="image" src="https://github.com/user-attachments/assets/23479b90-a8a8-4b73-8e68-844f8dce1c64" />
 <img width="1893" height="906" alt="image" src="https://github.com/user-attachments/assets/70c949c6-bee3-4366-b6cc-f8628a6b660f" />
-
-
-### Patient Medical History
-<img width="1893" height="833" alt="image" src="https://github.com/user-attachments/assets/30fbfaad-b486-40ac-ba69-316ce320c5f1" />
-
 
 ---
 
