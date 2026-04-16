@@ -28,13 +28,20 @@ A comprehensive, full-stack enterprise solution developed using **ASP.NET Core M
 ## Project Previews
 
 ### Medical Staff Directory
-(Insert Screenshot Here)
+<img width="1768" height="908" alt="image" src="https://github.com/user-attachments/assets/999880ce-5a36-4e9e-9f16-5f57cc4826b1" />
+<img width="1896" height="901" alt="image" src="https://github.com/user-attachments/assets/0e1f6a34-497a-4cd7-812e-d8ca004f9c5d" />
+<img width="1892" height="845" alt="image" src="https://github.com/user-attachments/assets/d5f5b4ec-9a7e-4f5c-95a4-c8cc8b168c85" />
+<img width="1893" height="870" alt="image" src="https://github.com/user-attachments/assets/cd3a8564-1ec7-4efd-8ad6-f3a3ae6a7990" />
+
 
 ### Appointment Management
-(Insert Screenshot Here)
+<img width="1700" height="858" alt="image" src="https://github.com/user-attachments/assets/184c1b1c-3c7c-4936-8f34-68a3d7113397" />
+<img width="1918" height="900" alt="image" src="https://github.com/user-attachments/assets/48eca9b4-f70c-4c71-b4f5-947946b1fb25" />
+<img width="1893" height="906" alt="image" src="https://github.com/user-attachments/assets/70c949c6-bee3-4366-b6cc-f8628a6b660f" />
+
 
 ### Patient Medical History
-(Insert Screenshot Here)
+<img width="1893" height="833" alt="image" src="https://github.com/user-attachments/assets/30fbfaad-b486-40ac-ba69-316ce320c5f1" />
 
 ---
 
