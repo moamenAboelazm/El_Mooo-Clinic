@@ -9,8 +9,6 @@ namespace El_Mooo_Clinic.DTOs
             public int PatientID { get; set; }
             public int DoctorID { get; set; }
             public DateTime RequestedDate { get; set; }
-
-            // 💡 ضفنا المدة هنا عشان نستقبلها من الفورم
             public int DurationInMinutes { get; set; }
         }
 
@@ -22,8 +20,6 @@ namespace El_Mooo_Clinic.DTOs
             public decimal Cost { get; set; }
             public DateTime AppointmentDate { get; set; }
             public string Status { get; set; }
-
-            // 💡 ضفناها هنا عشان لو حبينا نعرضها في التفاصيل
             public int DurationInMinutes { get; set; }
         }
 
