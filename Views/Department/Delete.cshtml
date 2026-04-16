@@ -16,7 +16,7 @@
                         This action cannot be undone!
                     </p>
 
-                    <form action="/Departments/Delete/@Model.ID" method="post" class="mt-4">
+                    <form action="/Department/Delete/@Model.ID" method="post" class="mt-4">
                         @Html.AntiForgeryToken()
                         <input type="hidden" asp-for="ID" />
 

@@ -8,7 +8,7 @@
 
     <div class="card shadow-sm border-0">
         <div class="card-body p-4 p-md-5">
-            <form action="/Patients/Edit/@Model.ID" method="post" enctype="multipart/form-data">
+            <form action="/Patient/Edit/@Model.ID" method="post" enctype="multipart/form-data">
                 @Html.AntiForgeryToken()
 
                 <input type="hidden" asp-for="ID" />
