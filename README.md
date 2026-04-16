@@ -16,11 +16,10 @@ A comprehensive, full-stack enterprise solution developed using **ASP.NET Core M
 
 ## Technical Architecture & Stack
 
-* **Backend**: **C#**, **ASP.NET Core MVC 8.0** (Primary Development Focus).
+* **Backend**: **C#**, **ASP.NET Core MVC 9.0** (Primary Development Focus).
 * **Database Layer**: **Entity Framework Core**, **SQL Server**.
 * **Design Patterns**: **Repository Pattern**, **Unit of Work**, **Dependency Injection (DI)**.
 * **Data Handling**: Implementation of **DTOs (Data Transfer Objects)** for secure and efficient data mapping.
-* **Optimization**: **In-Memory Caching** integrated to minimize database overhead and enhance response times for frequently accessed data.
 
 > **Note on UI/UX Implementation**: While the system features a responsive interface built with HTML5, CSS3, and Bootstrap, the **Frontend components were developed with AI assistance**. This strategic choice allowed for a concentrated focus on **Backend Logic, Database Design, and API Architecture**, ensuring the system’s core is built to production standards.
 
