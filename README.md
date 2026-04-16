@@ -27,6 +27,11 @@ A comprehensive, full-stack enterprise solution developed using **ASP.NET Core M
 
 ## Project Previews
 
+### Accessed Pages Authorization
+<img width="1888" height="872" alt="image" src="https://github.com/user-attachments/assets/10867bdc-8e8e-4a17-accb-ae9c126a1307" />
+<img width="1882" height="884" alt="image" src="https://github.com/user-attachments/assets/59a21902-f311-42fd-9c09-0705c681902c" />
+
+
 ### Departments Management
 <img width="1907" height="747" alt="image" src="https://github.com/user-attachments/assets/0ae6a6c8-7fcb-4549-83f6-f8f5afae8360" />
 <img width="1905" height="831" alt="image" src="https://github.com/user-attachments/assets/b53095b8-0cc4-48ee-8c88-b2ea92d97cc3" />
@@ -35,8 +40,9 @@ A comprehensive, full-stack enterprise solution developed using **ASP.NET Core M
 ### Medical Staff Directory
 <img width="1768" height="908" alt="image" src="https://github.com/user-attachments/assets/999880ce-5a36-4e9e-9f16-5f57cc4826b1" />
 <img width="1896" height="901" alt="image" src="https://github.com/user-attachments/assets/0e1f6a34-497a-4cd7-812e-d8ca004f9c5d" />
-<img width="1892" height="845" alt="image" src="https://github.com/user-attachments/assets/d5f5b4ec-9a7e-4f5c-95a4-c8cc8b168c85" />
 <img width="1893" height="870" alt="image" src="https://github.com/user-attachments/assets/cd3a8564-1ec7-4efd-8ad6-f3a3ae6a7990" />
+<img width="1889" height="842" alt="image" src="https://github.com/user-attachments/assets/a165ad7c-3427-442e-816d-a4606d92d252" />
+<img width="1916" height="854" alt="image" src="https://github.com/user-attachments/assets/74f5b54d-17e6-4089-b5ab-29b92a2200be" />
 
 
 ### Appointment Management
@@ -44,16 +50,12 @@ A comprehensive, full-stack enterprise solution developed using **ASP.NET Core M
 <img width="1918" height="900" alt="image" src="https://github.com/user-attachments/assets/48eca9b4-f70c-4c71-b4f5-947946b1fb25" />
 <img width="1892" height="878" alt="image" src="https://github.com/user-attachments/assets/17931af2-3ad0-49d2-8330-039aae1d310a" />
 <img width="1887" height="889" alt="image" src="https://github.com/user-attachments/assets/6246bf44-2181-4958-86eb-b6f174676e88" />
-
+<img width="1886" height="867" alt="image" src="https://github.com/user-attachments/assets/23479b90-a8a8-4b73-8e68-844f8dce1c64" />
 <img width="1893" height="906" alt="image" src="https://github.com/user-attachments/assets/70c949c6-bee3-4366-b6cc-f8628a6b660f" />
 
 
 ### Patient Medical History
 <img width="1893" height="833" alt="image" src="https://github.com/user-attachments/assets/30fbfaad-b486-40ac-ba69-316ce320c5f1" />
-
-
-### Accessed Pages Authorization
-<img width="1882" height="884" alt="image" src="https://github.com/user-attachments/assets/59a21902-f311-42fd-9c09-0705c681902c" />
 
 
 ---
@@ -74,6 +76,19 @@ This project is open for **professional feedback and architectural suggestions**
 2. Submit a **Pull Request** with detailed documentation of changes.
 3. Connect via **LinkedIn** for professional inquiries.
 
+---
+
+## 🔐 Default Credentials (For Testing)
+
+Once you run the migrations and start the app, you can use the following credentials to explore the system:
+
+* **Role:** Administrator
+* **Email:** Receptionist1@elmooo.com
+* **Password:** Receptionist1@123
+
+* **Role:** Doctor
+* **Email:** Moamenazm@elmooo.com
+* **Password:** Moamenazm@123
 ---
 
 ## Local Environment Setup
