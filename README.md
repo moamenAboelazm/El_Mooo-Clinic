@@ -27,6 +27,11 @@ A comprehensive, full-stack enterprise solution developed using **ASP.NET Core M
 
 ## Project Previews
 
+### Departments Management
+<img width="1907" height="747" alt="image" src="https://github.com/user-attachments/assets/0ae6a6c8-7fcb-4549-83f6-f8f5afae8360" />
+<img width="1905" height="831" alt="image" src="https://github.com/user-attachments/assets/b53095b8-0cc4-48ee-8c88-b2ea92d97cc3" />
+
+
 ### Medical Staff Directory
 <img width="1768" height="908" alt="image" src="https://github.com/user-attachments/assets/999880ce-5a36-4e9e-9f16-5f57cc4826b1" />
 <img width="1896" height="901" alt="image" src="https://github.com/user-attachments/assets/0e1f6a34-497a-4cd7-812e-d8ca004f9c5d" />
