@@ -1,0 +1,51 @@
+﻿@model IEnumerable<El_Mooo_Clinic.DTOs.DtoDepartment.ReadDTO>
+
+@{
+    ViewData["Title"] = "Departments List";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="text-primary fw-bold">🏢 Departments Management</h2>
+        <a href="/Department/Create" class="btn btn-success fw-bold s">+ Add New Department</a>
+    </div>
+
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-0">
+            <table class="table table-bordered table-striped table-hover text-center align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th class="text-center ps-4"># ID</th>
+                        <th class="text-center">Department Name</th>
+                        <th class="text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr class="align-middle">
+                                <td class="text-center ps-4 text-muted">@item.ID</td>
+                                <td class="text-center fw-bold fs-5">@item.Name</td>
+                                <td class="text-center">
+                                    <a href="/Department/Edit/@item.ID" class="btn btn-sm btn-primary px-3">Edit</a>
+                                    <a href="/Department/Delete/@item.ID" class="btn btn-sm btn-danger px-3 ms-1">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="3" class="text-center text-muted py-5">
+                                <h5>No departments found.</h5>
+                                <p>Click on "Add New Department" to get started.</p>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

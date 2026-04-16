@@ -1,0 +1,95 @@
+﻿@model El_Mooo_Clinic.DTOs.DtoDoctor.ReadDTO
+@using El_Mooo_Clinic.Models
+
+<div class="container mt-4">
+    <div class="d-flex align-items-center mb-4">
+        <a href="/Doctor/Details/@Model.ID" class="btn btn-outline-dark btn-sm me-3 border-2 fw-bold">← Back to Profile</a>
+        <h2 class="fw-bold m-0 text-primary">⚙️ Organize Schedule: Dr. @Model.Name</h2>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm border-3 border-dark p-4">
+                <h4 class="fw-bold mb-3">➕ Add New Work Slot</h4>
+                <form action="/Doctor/AddSchedule" method="post">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="DoctorID" value="@Model.ID" />
+
+                    <div class="mb-3">
+                        <label class="fw-bold">Work Day</label>
+                        <select name="DayOfWeek" class="form-select border-2 border-dark" required>
+                            @foreach (var day in Enum.GetValues(typeof(DayOfWeek)))
+                            {
+                                <option value="@day">@day</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="fw-bold">Start Time</label>
+                        <input type="time" name="StartTime" class="form-control border-2 border-dark" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="fw-bold">End Time</label>
+                        <input type="time" name="EndTime" class="form-control border-2 border-dark" required />
+                    </div>
+
+                    <button type="submit" class="btn btn-success w-100 fw-bold border-2 border-dark shadow-sm py-2">
+                        Add to Schedule
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="card shadow-sm border-3 border-dark overflow-hidden">
+                <div class="card-header bg-dark text-white fw-bold py-3">
+                    📋 Current Working Hours
+                </div>
+                <div class="card-body p-0">
+                    <table class="table table-hover mb-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th class="ps-4">Day</th>
+                                <th>From</th>
+                                <th>To</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.Schedules != null && Model.Schedules.Any())
+                            {
+                                foreach (var slot in Model.Schedules.OrderBy(s => (int)Enum.Parse(typeof(DayOfWeek), s.DayName)))
+                                {
+                                    <tr class="align-middle">
+                                        <td class="ps-4 fw-bold">@slot.DayName</td>
+                                        <td>@DateTime.Today.Add(slot.StartTime).ToString("hh:mm tt")</td>
+                                        <td>@DateTime.Today.Add(slot.EndTime).ToString("hh:mm tt")</td>
+                                        <td class="text-center">
+                                            <form action="/Doctor/DeleteSchedule" method="post" onsubmit="return confirm('Delete this slot?')">
+                                                @Html.AntiForgeryToken()
+                                                <input type="hidden" name="scheduleId" value="@slot.ID" />
+                                                <input type="hidden" name="doctorId" value="@Model.ID" />
+                                                <button type="submit" class="btn btn-sm btn-outline-danger border-2 fw-bold">Remove</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td colspan="4" class="text-center py-5 text-muted">
+                                        <h5>No schedules found.</h5>
+                                        <p>Use the form on the left to set working hours.</p>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

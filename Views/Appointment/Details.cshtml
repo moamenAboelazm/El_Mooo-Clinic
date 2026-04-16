@@ -1,0 +1,100 @@
+﻿@model El_Mooo_Clinic.DTOs.DtoAppointment.ReadDTO
+
+<div class="container mt-4">
+    <div class="d-flex align-items-center mb-4">
+        <a href="/Appointment" class="btn btn-light btn-sm me-3 border-2 fw-bold">← Back</a>
+        <h2 class="fw-bold m-0 text-primary">Appointment Control Center</h2>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm border-3 border-dark p-4 mb-4">
+                <h4 class="fw-bold mb-3 text-center">Update Status</h4>
+                <div class="text-center mb-4">
+                    <span class="badge bg-primary fs-5 border-2 border-dark">Current: @Model.Status</span>
+                </div>
+
+                <form action="/Appointment/UpdateStatus" method="post">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="id" value="@Model.ID" />
+                    <select name="status" class="form-select border-2 border-dark mb-3">
+                        @foreach (var s in Enum.GetValues(typeof(El_Mooo_Clinic.Models.ClsEnums.AppointmentStatus)))
+                        {
+                            <option value="@s">@s</option>
+                        }
+                    </select>
+                    <button type="submit" class="btn btn-warning px-3 fw-semibold w-100">Update Status</button>
+                </form>
+            </div>
+
+            <div class="card shadow-sm border-3 border-dark p-3">
+                <p><strong>👤 Patient:</strong> @Model.PatientName</p>
+                <p><strong>👨‍⚕️ Doctor:</strong> Dr. @Model.DoctorName</p>
+                <p><strong>📅 Date:</strong> @Model.AppointmentDate.ToShortDateString()</p>
+                <p><strong>⏰ Time:</strong> @Model.AppointmentDate.ToString("hh:mm tt")</p>
+            </div>
+        </div>
+
+        <div class="col-md-8 mb-4">
+            <div class="card shadow-sm border-3 border-dark h-100 overflow-hidden">
+                <div class="card-header bg-dark text-white fw-bold py-3 fs-5">
+                    📝 Medical Record & Clinical Notes
+                </div>
+                <div class="card-body p-4 bg-white">
+
+                    @{
+                        var record = ViewBag.MedicalRecord as El_Mooo_Clinic.DTOs.DtoMedicalRecord.ReadDTO;
+                    }
+
+                    @if (record == null)
+                    {
+                        <div class="alert alert-warning border-2 border-dark mb-4">
+                            <strong>No medical record found.</strong> Please add the diagnosis and prescription below.
+                        </div>
+
+                        <form action="/Appointment/AddMedicalRecord" method="post">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="AppointmentID" value="@Model.ID" />
+
+                            <div class="mb-3">
+                                <label class="fw-bold mb-2">Diagnosis (التشخيص)</label>
+                                <textarea name="Diagnosis" class="form-control border-2 border-dark" rows="3" required></textarea>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="fw-bold mb-2">Prescription (الروشتة)</label>
+                                <textarea name="Prescription" class="form-control border-2 border-dark" rows="3" required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-success px-3 fw-semibold w-100 fw-bold fs-5 py-2">
+                                💾 Save Record & Complete Appointment
+                            </button>
+                        </form>
+                    }
+                    else
+                    {
+                        <form action="/Appointment/UpdateMedicalRecord" method="post">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="ID" value="@record.ID" />
+                            <input type="hidden" name="appointmentId" value="@Model.ID" />
+
+                            <div class="mb-3">
+                                <label class="fw-bold mb-2 text-primary">Diagnosis</label>
+                                <textarea name="Diagnosis" class="form-control border-2 border-dark bg-light fw-semibold" rows="3">@record.Diagnosis</textarea>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="fw-bold mb-2 text-success">Prescription</label>
+                                <textarea name="Prescription" class="form-control border-2 border-dark bg-light fw-semibold" rows="3">@record.Prescription</textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary px-3 fw-semibold w-100 fw-bold">
+                                ✏️ Update Record
+                            </button>
+                        </form>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,75 @@
+﻿@model El_Mooo_Clinic.DTOs.DtoDoctor.UpdateDTO
+@using El_Mooo_Clinic.Models 
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="text-primary fw-bold">✏️ Edit Doctor Info</h2>
+    </div>
+    
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-4 p-md-5">
+            <form asp-action="Edit" method="post" enctype="multipart/form-data">
+                <input type="hidden" asp-for="ID" />
+                <input type="hidden" asp-for="ProfilePicture" />
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="fw-bold">Doctor Name</label>
+                        <input asp-for="Name" class="form-control" required />
+                        <span asp-validation-for="Name" class="text-danger small"></span>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="fw-bold">Department</label>
+                        <select asp-for="DepartmentID" class="form-select" asp-items="ViewBag.Departments" required>
+                            <option value="">-- Select Department --</option>
+                        </select>
+                        <span asp-validation-for="DepartmentID" class="text-danger small"></span>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="fw-bold">Birth Date</label>
+                        <input asp-for="BirthDate" type="date" class="form-control" required />
+                        <span asp-validation-for="BirthDate" class="text-danger small"></span>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="fw-bold">Gender</label>
+                        <select asp-for="Gender" class="form-select" asp-items="Html.GetEnumSelectList<ClsEnums.Gender>()" required>
+                            <option value="">-- Select Gender --</option>
+                        </select>
+                        <span asp-validation-for="Gender" class="text-danger small"></span>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="fw-bold">Examination Cost ($)</label>
+                        <input asp-for="ExaminationCost" type="number" class="form-control" step="0.01" />
+                        <span asp-validation-for="ExaminationCost" class="text-danger small"></span>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="fw-bold">Phone Number</label>
+                        <input asp-for="PhoneNumber" class="form-control" />
+                        <span asp-validation-for="PhoneNumber" class="text-danger small"></span>
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+                        <label class="fw-bold">Update Photo <span class="text-muted fw-normal">(Leave empty to keep current photo)</span></label>
+                        <input type="file" name="ImageFile" class="form-control" accept="image/*" />
+                    </div>
+                </div>
+
+                <hr class="my-4 border-2 border-dark" />
+
+                <div class="mt-4 text-end">
+                    <a asp-action="Index" class="btn btn-secondary px-4 fw-bold">Cancel</a>
+                    <button type="submit" class="btn btn-primary px-5 fw-bold ms-2">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,63 @@
+﻿@model El_Mooo_Clinic.DTOs.DtoPatient.CreateDTO
+@using El_Mooo_Clinic.Models
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="text-primary fw-bold">✨ Register New Patient</h2>
+    </div>
+
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-4 p-md-5">
+            <form action="/Patient/Create" method="post" enctype="multipart/form-data">
+                @Html.AntiForgeryToken()
+                <div class="row">
+
+                    <div class="col-md-6 mb-3">
+                        <label class="fw-bold">Patient Name</label>
+                        <input asp-for="Name" class="form-control" placeholder="Enter full name..." required />
+                        <span asp-validation-for="Name" class="text-danger small"></span>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="fw-bold">Birth Date</label>
+                        <input asp-for="BirthDate" type="date" class="form-control" required />
+                        <span asp-validation-for="BirthDate" class="text-danger small"></span>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="fw-bold">Gender</label>
+                        <select asp-for="Gender" class="form-select" asp-items="Html.GetEnumSelectList<ClsEnums.Gender>()" required>
+                            <option value="">-- Select Gender --</option>
+                        </select>
+                        <span asp-validation-for="Gender" class="text-danger small"></span>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="fw-bold">Phone Number</label>
+                        <input asp-for="PhoneNumber" class="form-control" placeholder="010..." required />
+                        <span asp-validation-for="PhoneNumber" class="text-danger small"></span>
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+                        <label class="fw-bold">Patient Photo <span class="text-muted fw-normal">(Optional)</span></label>
+                        <input type="file" name="ImageFile" class="form-control" accept="image/*" />
+                    </div>
+
+                </div>
+
+                <hr class="my-4 border-2 border-dark" />
+
+                <div class="mt-4 text-end">
+                    <a asp-action="Index" class="btn btn-secondary px-4 fw-bold">Cancel</a>
+                    <button type="submit" class="btn btn-success px-5 fw-bold ms-2">Save Patient Info</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

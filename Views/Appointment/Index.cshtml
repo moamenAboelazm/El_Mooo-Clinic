@@ -1,0 +1,65 @@
+﻿@model IEnumerable<El_Mooo_Clinic.DTOs.DtoAppointment.ReadDTO>
+
+<style>
+    .search-pill {
+        background: #fff;
+        border: 3px solid #1a1a1a;
+        border-radius: 50px;
+        padding: 8px 20px;
+        box-shadow: 4px 4px 0px #1a1a1a;
+        transition: 0.3s;
+    }
+
+        .search-pill:focus-within {
+            transform: translateY(-2px);
+            border-color: #0d6efd;
+            box-shadow: 6px 6px 0px #0d6efd;
+        }
+
+    .search-input {
+        border: none;
+        outline: none;
+        width: 100%;
+        font-weight: 600;
+        font-size: 1.1rem;
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-5 border-bottom border-4 border-dark pb-3">
+        <h1 class="fw-bold text-primary mb-0">📅 Appointments List</h1>
+        <a href="/Appointment/Create" class="btn btn-success px-3 fw-semibold">Book New</a>
+    </div>
+
+    <div class="row mb-5 justify-content-center">
+        <div class="col-md-8">
+            <div class="search-pill d-flex align-items-center">
+                <span class="me-2">🔍</span>
+                <input type="text" id="appointmentSearchInput" class="search-input" placeholder="Search by patient, doctor or status..." autocomplete="off">
+                <a href="/Appointment" class="btn btn-sm btn-light border-2 border-dark rounded-pill fw-bold ms-2">Clear</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="appointmentTableContainer" class="card border-4 border-dark shadow" style="box-shadow: 8px 8px 0px #000;">
+        @await Html.PartialAsync("_AppointmentTablePartial", Model)
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#appointmentSearchInput').on('keyup', function () {
+                var val = $(this).val();
+                $.ajax({
+                    url: '/Appointment/Index',
+                    type: 'GET',
+                    data: { searchString: val },
+                    success: function (res) {
+                        $('#appointmentTableContainer').html(res);
+                    }
+                });
+            });
+        });
+    </script>
+}

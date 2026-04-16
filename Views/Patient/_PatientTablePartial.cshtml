@@ -1,0 +1,77 @@
+﻿@model IEnumerable<El_Mooo_Clinic.DTOs.DtoPatient.ReadDTO>
+
+<div class="card-body p-0 table-responsive bg-white">
+    <table class="table table-hover align-middle mb-0 text-center fw-semibold">
+        <thead class="table-dark">
+            <tr>
+                <th class="py-3 text-center border-end border-dark">ID</th>
+                <th class="ps-4 text-start border-end border-dark">Patient Profile</th>
+                <th class="text-center border-end border-dark">Age</th>
+                <th class="text-center border-end border-dark">Gender</th>
+                <th class="border-end border-dark">Phone Number</th>
+                <th class="text-center border-end border-dark">Visits</th>
+                <th class="text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                @foreach (var patient in Model)
+                {
+                    string imageSrc = !string.IsNullOrEmpty(patient.ProfilePicture) && patient.ProfilePicture.Contains("Default")
+                    ? $"/Images/{patient.ProfilePicture}"
+                    : $"/images/patients/{patient.ProfilePicture}";
+
+                    if (string.IsNullOrEmpty(patient.ProfilePicture))
+                    {
+                        imageSrc = patient.GenderName == "Female" ? "/Images/DefaultImagePatientFemale.png" : "/Images/DefaultImagePatientMale.png";
+                    }
+
+                    <tr class="align-middle border-bottom border-2 border-dark">
+                        <td class="border-end border-2 border-dark fw-bold">@patient.ID</td>
+
+                        <td class="ps-4 text-start border-end border-2 border-dark">
+                            <a href="/Patient/Details/@patient.ID" class="text-decoration-none text-dark d-block py-2">
+                                <div class="d-flex align-items-center" style="transition: transform 0.2s;" onmouseover="this.style.transform='translateX(5px)'" onmouseout="this.style.transform='translateX(0)'">
+                                    <img src="@imageSrc"
+                                         class="rounded-circle avatar me-3 bg-white border border-2 border-dark"
+                                         style="width: 50px; height: 50px; object-fit: cover;"
+                                         onerror="this.src='/Images/DefaultImagePatientMale.png'" />
+                                    <span class="fw-bold fs-5 text-primary text-decoration-underline-hover">@patient.Name</span>
+                                </div>
+                            </a>
+                        </td>
+
+                        <td class="text-center fw-bold border-end border-2 border-dark">@patient.Age</td>
+
+                        <td class="text-center border-end border-2 border-dark">
+                            <span class="badge @(patient.GenderName == "Male" ? "bg-primary" : "bg-danger") text-white border border-dark px-2 py-1 fs-6">
+                                @patient.GenderName
+                            </span>
+                        </td>
+
+                        <td class="fw-bold border-end border-2 border-dark fs-5">@patient.PhoneNumber</td>
+
+                        <td class="text-center fw-bold text-success fs-4 border-end border-2 border-dark">
+                            @patient.NumberOfVisits
+                        </td>
+
+                        <td class="text-center">
+                            <a href="/Patient/Edit/@patient.ID" class="btn btn-sm btn-primary px-3 fw-semibold">Edit</a>
+                            <a href="/Patient/Delete/@patient.ID" class="btn btn-sm btn-danger px-3 fw-semibold">Delete</a>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="7" class="text-center py-5 text-muted fw-bold">
+                        <h4 class="mb-3">No patients found. 📭</h4>
+                        <p class="fs-5">Try a different search term or register a new patient.</p>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,109 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - El-Mooo Clinic </title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+
+    <style>
+        #toast-container > .toast-success {
+            background-color: #198754 !important;
+            color: black !important;
+            opacity: 1 !important;
+        }
+
+        #toast-container > .toast-error {
+            background-color: #dc3545 !important;
+            color: black !important;
+            opacity: 1 !important;
+        }
+
+        .toast-message, .toast-title {
+            color: black !important;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #0d6efd !important;
+            font-weight: 500;
+        }
+    </style>
+
+    <link rel="stylesheet" href="~/css/BootStrapSheet.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MVC_NET_CORE.styles.css" asp-append-version="true" />
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold" asp-area="" asp-controller="Home" asp-action="Index">🩺 El-Mooo Clinic</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+
+                    <ul class="navbar-nav flex-grow-1 border-0 fw-bold">
+                        <li class="nav-item"><a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark" asp-controller="Department" asp-action="Index">Departments</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark" asp-controller="Doctor" asp-action="Index">Doctors</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark" asp-controller="Patient" asp-action="Index">Patients</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark" asp-controller="Appointment" asp-action="Index">Appointments</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark" asp-controller="Home" asp-action="About">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark" asp-controller="Home" asp-action="Privacy">Privacy</a></li>
+                    </ul>
+
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-item me-3 mb-2 mb-lg-0">
+                                <span class="fw-bold text-dark fs-5 border border-3 border-dark px-3 py-1 bg-white d-inline-block" style="box-shadow: 4px 4px 0px #ffc107;">
+                                    👋 Welcome, <span class="text-primary">@User.Identity?.Name?.Split('@')[0]</span>
+                                </span>
+                            </li>
+
+                            <li class="nav-item">
+                                <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline">
+                                    <button type="submit" class="btn btn-danger fw-bold px-3 fw-semibold">
+                                        🚪 Logout
+                                    </button>
+                                </form>
+                            </li>
+                        }
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted mt-5">
+        <div class="container py-3">
+            &copy; 2026 - El-Mooo Clinic Management System
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <partial name="_Notification" />
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

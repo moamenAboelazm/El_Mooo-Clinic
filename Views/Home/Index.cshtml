@@ -1,0 +1,127 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="container mt-4">
+    <div class="p-5 mb-4 bg-light rounded-4 shadow-sm border" style="background: linear-gradient(to right, #f8f9fa, #e9ecef);">
+        <div class="container-fluid py-2 text-center">
+            <h1 class="display-5 fw-bold text-primary">🩺 Welcome to El Mooo Clinic</h1>
+            <p class="col-md-8 mx-auto fs-5 text-muted mt-3">
+                Your central dashboard to effortlessly manage departments, doctors, patients, and appointments.
+            </p>
+        </div>
+    </div>
+
+    <div class="row g-4 mt-2 text-center">
+
+        <div class="col-md-3">
+            <div class="card h-100 shadow-sm border-0 bg-white" style="transition: transform 0.3s; cursor: pointer;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                <div class="card-body py-4">
+                    <div class="display-4 text-info mb-3">🏢</div>
+                    <h4 class="card-title fw-bold">Departments</h4>
+                    <p class="card-text text-muted small">Manage medical specialties.</p>
+                    <a href="/Department" class="btn btn-info w-100 rounded-pill fw-bold">Manage Departments</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card h-100 shadow-sm border-0 bg-white" style="transition: transform 0.3s; cursor: pointer;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                <div class="card-body py-4">
+                    <div class="display-4 text-success mb-3">👨‍⚕️</div>
+                    <h4 class="card-title fw-bold">Doctors</h4>
+                    <p class="card-text text-muted small">Register doctors and schedules.</p>
+                    <a href="/Doctor" class="btn btn-success w-100 rounded-pill fw-bold">Manage Doctors</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card h-100 shadow-sm border-0 bg-white" style="transition: transform 0.3s; cursor: pointer;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                <div class="card-body py-4">
+                    <div class="display-4 text-warning mb-3">🤒</div>
+                    <h4 class="card-title fw-bold">Patients</h4>
+                    <p class="card-text text-muted small">Patient records and medical history.</p>
+                    <a href="/Patient" class="btn btn-warning w-100 rounded-pill fw-bold">Manage Patients</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card h-100 shadow-sm border-0 bg-white" style="transition: transform 0.3s; cursor: pointer;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                <div class="card-body py-4">
+                    <div class="display-4 text-danger mb-3">📅</div>
+                    <h4 class="card-title fw-bold">Appointments</h4>
+                    <p class="card-text text-muted small">Track today's bookings and schedules.</p>
+                    <a href="/Appointment" class="btn btn-danger w-100 rounded-pill fw-bold">Manage Appointments</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="container mt-4">
+    <div class="d-flex align-items-center mb-5 border-bottom border-4 border-dark pb-3">
+        <h1 class="display-4 me-3 mb-0">⚡</h1>
+        <div>
+            <h1 class="fw-bold m-0 text-primary" style="font-size: 3rem;">Clinic Overview</h1>
+            <p class="text-muted fw-bold fs-5 mb-0">Real-time statistics and financials</p>
+        </div>
+    </div>
+
+    <div class="row g-4 mb-5">
+
+        <div class="col-md-3">
+            <div class="card border-4 border-dark shadow-sm bg-warning text-dark h-100" style="transition: transform 0.2s; box-shadow: 6px 6px 0px #000 !important;" onmouseover="this.style.transform='translate(-3px, -3px)'" onmouseout="this.style.transform='translate(0, 0)'">
+                <div class="card-body text-center p-4">
+                    <div class="display-3 mb-3">👨‍⚕️</div>
+                    <h2 class="fw-bold display-5">@Model.TotalDoctors</h2>
+                    <h4 class="fw-bold text-uppercase">Doctors</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card border-4 border-dark shadow-sm bg-info text-dark h-100" style="transition: transform 0.2s; box-shadow: 6px 6px 0px #000 !important;" onmouseover="this.style.transform='translate(-3px, -3px)'" onmouseout="this.style.transform='translate(0, 0)'">
+                <div class="card-body text-center p-4">
+                    <div class="display-3 mb-3">🧑‍🤝‍🧑</div>
+                    <h2 class="fw-bold display-5">@Model.TotalPatients</h2>
+                    <h4 class="fw-bold text-uppercase">Patients</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card border-4 border-dark shadow-sm bg-primary text-white h-100" style="transition: transform 0.2s; box-shadow: 6px 6px 0px #000 !important;" onmouseover="this.style.transform='translate(-3px, -3px)'" onmouseout="this.style.transform='translate(0, 0)'">
+                <div class="card-body text-center p-4">
+                    <div class="display-3 mb-3">✅</div>
+                    <h2 class="fw-bold display-5">@Model.CompletedVisits</h2>
+                    <h4 class="fw-bold text-uppercase">Completed</h4>
+                    <p class="small fw-bold mb-0 text-light">Out of @Model.TotalAppointments total bookings</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card border-4 border-dark shadow-sm bg-success text-white h-100" style="transition: transform 0.2s; box-shadow: 6px 6px 0px #000 !important;" onmouseover="this.style.transform='translate(-3px, -3px)'" onmouseout="this.style.transform='translate(0, 0)'">
+                <div class="card-body text-center p-4">
+                    <div class="display-3 mb-3">💰</div>
+                    <h2 class="fw-bold display-5">@Model.TotalRevenue.ToString("C0")</h2>
+                    <h4 class="fw-bold text-uppercase">Net Income</h4>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="alert alert-light border-4 border-dark shadow-sm p-4 d-flex justify-content-between align-items-center">
+        <div>
+            <h4 class="fw-bold mb-1">Need to book a new appointment?</h4>
+            <p class="mb-0 fw-semibold text-muted">Jump straight to the booking desk to manage schedules.</p>
+        </div>
+        <a href="/Appointment/Create" class="btn btn-light px-3 fw-semibold" >
+            Book Now 🗓️
+        </a>
+    </div>
+</div>

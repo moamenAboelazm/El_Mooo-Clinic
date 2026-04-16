@@ -1,0 +1,45 @@
+﻿@model IEnumerable<El_Mooo_Clinic.DTOs.DtoAppointment.ReadDTO>
+
+<div class="table-responsive bg-white">
+    <table class="table table-hover align-middle mb-0 text-center fw-semibold">
+        <thead class="table-dark">
+            <tr>
+                <th class="py-3 border-end border-dark">Patient</th>
+                <th class="border-end border-dark">Doctor</th>
+                <th class="border-end border-dark">Date & Time</th>
+                <th class="border-end border-dark">Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                    <tr class="border-bottom border-2 border-dark">
+                        <td class="fw-bold border-end border-2 border-dark">@item.PatientName</td>
+                        <td class="fw-bold text-primary border-end border-2 border-dark">Dr. @item.DoctorName</td>
+                        <td class="border-end border-2 border-dark">
+                            <span class="d-block">@item.AppointmentDate.ToString("dd/MM/yyyy")</span>
+                            <small class="badge bg-light text-dark border border-dark">@item.AppointmentDate.ToString("hh:mm tt")</small>
+                        </td>
+                        <td class="border-end border-2 border-dark">
+                            @{
+                                var badgeClass = item.Status == "Completed" ? "bg-success" :
+                                item.Status == "Cancelled" ? "bg-danger" : "bg-primary";
+                            }
+                            <span class="badge @badgeClass border border-dark">@item.Status</span>
+                        </td>
+                        <td>
+                            <a href="/Appointment/Details/@item.ID" class="btn btn-sm btn-info px-3 fw-semibold">Details</a>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr><td colspan="5" class="py-5 fw-bold text-muted">No appointments found matching your search.</td></tr>
+            }
+        </tbody>
+    </table>
+</div>

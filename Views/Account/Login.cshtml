@@ -1,0 +1,106 @@
+﻿@model El_Mooo_Clinic.ViewModels.LoginViewModel
+
+@{
+    ViewData["Title"] = "System Login";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - El-Mooo Clinic</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <style>
+        body {
+            background-color: #f4f4f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .neo-card {
+            background-color: #fff;
+            border: 5px solid #1a1a1a;
+            box-shadow: 12px 12px 0px #1a1a1a;
+            width: 100%;
+            max-width: 450px;
+            padding: 40px;
+            border-radius: 0;
+        }
+
+        .neo-input {
+            border: 3px solid #1a1a1a;
+            border-radius: 0;
+            padding: 12px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 4px 4px 0px #1a1a1a;
+            transition: all 0.2s;
+        }
+
+            .neo-input:focus {
+                outline: none;
+                box-shadow: 6px 6px 0px #0d6efd;
+                border-color: #0d6efd;
+                transform: translateY(-2px);
+            }
+
+        .neo-btn {
+            background-color: #ffc107;
+            color: #1a1a1a;
+            border: 4px solid #1a1a1a;
+            font-size: 1.3rem;
+            font-weight: 900;
+            padding: 12px;
+            box-shadow: 6px 6px 0px #1a1a1a;
+            transition: transform 0.1s, box-shadow 0.1s;
+        }
+
+            .neo-btn:active {
+                transform: translate(4px, 4px);
+                box-shadow: 2px 2px 0px #1a1a1a;
+            }
+    </style>
+</head>
+<body>
+
+    <div class="neo-card">
+        <div class="text-center mb-4">
+            <h1 class="display-4 mb-2">🏥</h1>
+            <h2 class="fw-bold text-primary" style="text-shadow: 2px 2px 0px #1a1a1a;">El-Mooo Clinic</h2>
+            <p class="fw-bold text-muted mb-0">Authorized Personnel Only</p>
+        </div>
+
+        <form asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger fw-bold mb-3 border border-2 border-danger p-2 bg-light"></div>
+
+            <div class="mb-4">
+                <label asp-for="Email" class="form-label fw-bold fs-5">Email Address</label>
+                <input asp-for="Email" class="form-control neo-input" placeholder="admin@elmooo.com" />
+                <span asp-validation-for="Email" class="text-danger fw-bold"></span>
+            </div>
+
+            <div class="mb-4">
+                <label asp-for="Password" class="form-label fw-bold fs-5">Password</label>
+                <input asp-for="Password" class="form-control neo-input" placeholder="••••••••" />
+                <span asp-validation-for="Password" class="text-danger fw-bold"></span>
+            </div>
+
+            <div class="mb-4 form-check">
+                <input asp-for="RememberMe" class="form-check-input border border-2 border-dark" style="width: 20px; height: 20px; cursor: pointer;" />
+                <label asp-for="RememberMe" class="form-check-label fw-bold ms-2" style="cursor: pointer;">
+                    Remember Me
+                </label>
+            </div>
+
+            <button type="submit" class="btn neo-btn w-100 d-block text-uppercase">Log In 🚀</button>
+        </form>
+    </div>
+
+</body>
+</html>

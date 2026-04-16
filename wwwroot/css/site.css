@@ -1,0 +1,80 @@
+body {
+    background-color: #f9f9f9;
+}
+
+/*.btn {
+    border-radius: 50px !important; 
+    font-weight: 700 !important;
+    transition: 0.2s;
+    border: 2px solid #000 !important; 
+    box-shadow: 4px 4px 0px #000 !important;
+}
+.btn:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0px #000 !important;
+}
+.btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px #000 !important;
+}*/
+
+.table {
+    border: 2px solid #000 !important;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table-bordered {
+    border-color: #eee !important;
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.03) !important;
+    transition: 0.2s;
+}
+
+.table thead th {
+    background-color: #e9ecef !important;
+    color: #000 !important;
+    border-bottom: 2px solid #000 !important;
+}
+
+.avatar {
+    object-fit: cover;
+    border: 2px solid #000 !important;
+    box-shadow: 3px 3px 0px #000 !important;
+}
+
+.card {
+    border: 2px solid #000 !important;
+    border-radius: 8px !important;
+}
+
+.form-control, .form-select {
+    border: 2px solid #000 !important;
+    border-radius: 4px !important;
+}
+
+.td , th {
+    border: 1px solid #333;
+}
+
+.btn-neo {
+    position: relative;
+    transition: all 0.1s ease; 
+    border: 2px solid #000 !important;
+    box-shadow: 4px 4px 0px #000;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.btn-neo:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0px #000;
+    filter: brightness(1.1);
+}
+
+.btn-neo:active {
+transform: translate(4px, 4px);
+ box-shadow: 0px 0px 0px #000;
+ }

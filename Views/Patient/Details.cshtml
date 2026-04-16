@@ -1,0 +1,113 @@
+﻿@{
+    var patientAppointments = ViewBag.PatientAppointments as IEnumerable<El_Mooo_Clinic.DTOs.DtoAppointment.ReadDTO>;
+
+    int totalBookings = patientAppointments?.Count() ?? 0;
+    int completedVisits = patientAppointments?.Count(a => a.Status == "Completed") ?? 0;
+    decimal totalPaid = patientAppointments?.Where(a => a.Status == "Completed").Sum(a => a.Cost) ?? 0;
+}
+
+<div class="container mt-5 mb-5">
+
+    <h3 class="fw-bold text-primary mb-4 border-bottom border-3 border-dark pb-2">📊 Patient Summary</h3>
+    <div class="row g-4 mb-5">
+
+        <div class="col-md-4">
+            <div class="card border-4 border-dark shadow-sm bg-info text-dark h-100" style="box-shadow: 5px 5px 0px #000 !important;">
+                <div class="card-body text-center p-3">
+                    <h1 class="display-5 mb-2">🗓️</h1>
+                    <h2 class="fw-bold display-6">@totalBookings</h2>
+                    <h5 class="fw-bold text-uppercase">Total Bookings</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card border-4 border-dark shadow-sm bg-success text-white h-100" style="box-shadow: 5px 5px 0px #000 !important;">
+                <div class="card-body text-center p-3">
+                    <h1 class="display-5 mb-2">✅</h1>
+                    <h2 class="fw-bold display-6">@completedVisits</h2>
+                    <h5 class="fw-bold text-uppercase">Actual Visits</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card border-4 border-dark shadow-sm bg-warning text-dark h-100" style="box-shadow: 5px 5px 0px #000 !important;">
+                <div class="card-body text-center p-3">
+                    <h1 class="display-5 mb-2">💸</h1>
+                    <h2 class="fw-bold display-6">@totalPaid.ToString("C0")</h2>
+                    <h5 class="fw-bold text-uppercase">Total Paid</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card border-4 border-dark shadow-sm" style="box-shadow: 6px 6px 0px #000 !important;">
+        <div class="card-header bg-primary text-white border-bottom border-4 border-dark fw-bold fs-4 py-3 d-flex align-items-center">
+            <span class="me-2">📁</span> Medical & Appointment History
+        </div>
+
+        <div class="card-body p-0 table-responsive bg-white">
+            <table class="table table-hover align-middle mb-0 text-center fw-semibold">
+                <thead class="table-dark">
+                    <tr>
+                        <th class="py-3 text-start ps-4 border-end border-dark">Doctor Name</th>
+                        <th class="border-end border-dark">Date & Time</th>
+                        <th class="border-end border-dark">Cost</th>
+                        <th class="border-end border-dark">Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (patientAppointments != null && patientAppointments.Any())
+                    {
+                        foreach (var app in patientAppointments)
+                        {
+                            <tr class="border-bottom border-2 border-dark">
+                                <td class="text-start ps-4 fw-bold fs-5  border-end border-2 border-dark">
+                                    Dr. @app.DoctorName
+                                </td>
+                                <td class="border-end border-2 border-dark">
+                                    <div class="fw-bold text-dark">@app.AppointmentDate.ToString("MMM dd, yyyy")</div>
+                                    <span class="badge bg-light text-dark border border-dark">
+                                        @app.AppointmentDate.ToString("hh:mm tt")
+                                    </span>
+                                </td>
+                                <td class="border-end border-2 border-dark fw-bold text-success">
+                                    @app.Cost.ToString("C")
+                                </td>
+                                <td class="border-end border-2 border-dark">
+                                    @if (app.Status == "Completed")
+                                    {
+                                        <span class="badge bg-success border border-dark px-2 py-1">@app.Status</span>
+                                    }
+                                    else if (app.Status == "Cancelled")
+                                    {
+                                        <span class="badge bg-danger border border-dark px-2 py-1">@app.Status</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-primary border border-dark px-2 py-1">@app.Status</span>
+                                    }
+                                </td>
+                                <td>
+                                    <a href="/Appointment/Details/@app.ID" class="btn btn-sm btn-info btn-neo px-3 fw-bold">
+                                        👁️ View Record
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="5" class="text-center py-5 text-muted fw-bold fs-5">
+                                No history found for this patient. 📭
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

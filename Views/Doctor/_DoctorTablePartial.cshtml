@@ -1,0 +1,62 @@
+﻿@model IEnumerable<El_Mooo_Clinic.DTOs.DtoDoctor.ReadDTO>
+
+<div class="card-body p-0 table-responsive bg-white">
+    <table class="table table-hover align-middle mb-0 text-center fw-semibold">
+        <thead class="table-dark">
+            <tr>
+                <th class="py-3 text-center border-end border-dark">ID</th>
+                <th class="ps-4 text-start border-end border-dark">Doctor Profile</th>
+                <th class="text-center border-end border-dark">Department</th>
+                <th class="border-end border-dark">Phone</th>
+                <th class="text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                @foreach (var doctor in Model)
+                {
+                    <tr class="align-middle border-bottom border-2 border-dark">
+                        <td class="border-end border-2 border-dark fw-bold">@doctor.ID</td>
+
+                        <td class="ps-4 text-start border-end border-2 border-dark">
+                            <a href="/Doctor/Details/@doctor.ID" class="text-decoration-none text-dark d-block py-2">
+                                <div class="d-flex align-items-center" style="transition: transform 0.2s;" onmouseover="this.style.transform='translateX(5px)'" onmouseout="this.style.transform='translateX(0)'">
+
+                                    <img src="~/Images/doctors/@doctor.ProfilePicture"
+                                         class="rounded-circle avatar me-3 bg-white border border-2 border-dark shadow-sm"
+                                         style="width: 50px; height: 50px; object-fit: cover;"
+                                         onerror="this.src='/Images/doctors/DefaultImageDoctorMale.jpg'" />
+
+                                    <div>
+                                        <span class="fw-bold fs-5 text-primary text-decoration-underline-hover d-block">Dr. @doctor.Name</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </td>
+
+                        <td class="text-center fw-bold border-end border-2 border-dark">
+                            <span class="badge bg-info text-dark border border-dark px-2 py-1 fs-6">@doctor.DepartmentName</span>
+                        </td>
+
+                        <td class="fw-bold border-end border-2 border-dark fs-5">@doctor.PhoneNumber</td>
+
+                        <td class="text-center">
+                            <a href="/Doctor/Edit/@doctor.ID" class="btn btn-sm btn-warning px-3 fw-semibold">Edit</a>
+                            <a href="/Doctor/Delete/@doctor.ID" class="btn btn-sm btn-danger px-3 fw-semibold">Delete</a>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="6" class="text-center py-5 text-muted fw-bold">
+                        <h4 class="mb-3">No doctors found. 📭</h4>
+                        <p class="fs-5">Try searching for a different name, phone, or department.</p>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
