@@ -42,6 +42,9 @@ A comprehensive, full-stack enterprise solution developed using **ASP.NET Core M
 ### Appointment Management
 <img width="1700" height="858" alt="image" src="https://github.com/user-attachments/assets/184c1b1c-3c7c-4936-8f34-68a3d7113397" />
 <img width="1918" height="900" alt="image" src="https://github.com/user-attachments/assets/48eca9b4-f70c-4c71-b4f5-947946b1fb25" />
+<img width="1892" height="878" alt="image" src="https://github.com/user-attachments/assets/17931af2-3ad0-49d2-8330-039aae1d310a" />
+<img width="1887" height="889" alt="image" src="https://github.com/user-attachments/assets/6246bf44-2181-4958-86eb-b6f174676e88" />
+
 <img width="1893" height="906" alt="image" src="https://github.com/user-attachments/assets/70c949c6-bee3-4366-b6cc-f8628a6b660f" />
 
 
