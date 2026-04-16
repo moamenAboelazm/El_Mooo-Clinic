@@ -81,8 +81,8 @@ namespace El_Mooo_Clinic.Controllers.Mvc
 
                 var doctors = await _doctorService.GetAllDoctorsAsync();
                 var patients = await _patientService.GetAllPatientsAsync();
-                ViewBag.Doctors = new SelectList(doctors, "ID", "Name");
-                ViewBag.Patients = new SelectList(patients, "ID", "Name");
+                ViewBag.Patients = new SelectList(await _patientService.GetAllPatientsAsync(), "ID", "Name");
+                ViewBag.Doctors = new SelectList(await _doctorService.GetAllDoctorsAsync(), "ID", "Name");
 
                 return View(dto);
             }

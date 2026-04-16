@@ -4,25 +4,27 @@
     ViewData["Title"] = "Book Appointment";
 }
 
-<div class="container mt-4">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2 class="text-primary fw-bold" style="text-shadow: 2px 2px 0px #1a1a1a;">📅 Book New Appointment</h2>
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+<div class="container mt-5 mb-5">
+    <div class="d-flex align-items-center mb-4">
+        <h1 class="text-primary fw-bold display-5 mb-0" style="text-shadow: 2px 2px 0px #000;">
+            📅 Book New Appointment
+        </h1>
     </div>
 
-    <div class="card bg-white border border-4 border-dark rounded-0 mb-5" style="box-shadow: 12px 12px 0px #1a1a1a;">
-        <div class="card-header bg-warning border-bottom border-4 border-dark py-3">
-            <h4 class="mb-0 fw-bold text-dark">Appointment Details</h4>
+    <div class="card border-4 border-dark shadow-sm" style="box-shadow: 10px 10px 0px #000 !important; border-radius: 0;">
+        <div class="card-header bg-warning border-bottom border-4 border-dark">
+            <h4 class="mb-0 fw-bold">Appointment Details</h4>
         </div>
         <div class="card-body p-4 p-md-5">
-
             <form asp-action="Create" method="post">
-
-                <div asp-validation-summary="ModelOnly" class="alert alert-danger border border-3 border-danger fw-bold shadow-sm mb-4"></div>
+                @Html.AntiForgeryToken()
 
                 <div class="row">
                     <div class="col-md-6 mb-4">
                         <label asp-for="PatientID" class="form-label fw-bold fs-5 text-dark">Select Patient</label>
-                        <select asp-for="PatientID" class="form-select form-select-lg neo-input border border-3 border-dark rounded-0 fw-bold" asp-items="ViewBag.Patients" required>
+                        <select asp-for="PatientID" class="form-select select-search" asp-items="ViewBag.Patients">
                             <option value="">-- Choose Patient --</option>
                         </select>
                         <span asp-validation-for="PatientID" class="text-danger fw-bold small mt-1 d-block"></span>
@@ -30,7 +32,7 @@
 
                     <div class="col-md-6 mb-4">
                         <label asp-for="DoctorID" class="form-label fw-bold fs-5 text-dark">Select Doctor</label>
-                        <select asp-for="DoctorID" class="form-select form-select-lg neo-input border border-3 border-dark rounded-0 fw-bold" asp-items="ViewBag.Doctors" required>
+                        <select asp-for="DoctorID" class="form-select select-search" asp-items="ViewBag.Doctors">
                             <option value="">-- Choose Doctor --</option>
                         </select>
                         <span asp-validation-for="DoctorID" class="text-danger fw-bold small mt-1 d-block"></span>
@@ -38,51 +40,78 @@
 
                     <div class="col-md-6 mb-4">
                         <label asp-for="RequestedDate" class="form-label fw-bold fs-5 text-dark">Appointment Date</label>
-                        <input asp-for="RequestedDate" type="date" class="form-control form-control-lg neo-input border border-3 border-dark rounded-0 fw-bold" required />
+                        <input asp-for="RequestedDate" type="date" class="form-control form-control-lg border-3 border-dark rounded-0 fw-bold" required />
                         <span asp-validation-for="RequestedDate" class="text-danger fw-bold small mt-1 d-block"></span>
                     </div>
 
                     <div class="col-md-6 mb-4">
                         <label asp-for="DurationInMinutes" class="form-label fw-bold fs-5 text-dark">Estimated Duration</label>
-                        <select asp-for="DurationInMinutes" class="form-select form-select-lg neo-input border border-3 border-dark rounded-0 fw-bold" required>
-                            <option value="15">15 Minutes (Quick Check / Follow-up)</option>
+                        <select asp-for="DurationInMinutes" class="form-select form-control-lg border-3 border-dark rounded-0 fw-bold">
+                            <option value="15">15 Minutes (Quick Checkup)</option>
                             <option value="30" selected>30 Minutes (Standard Checkup)</option>
-                            <option value="45">45 Minutes (Minor Procedure)</option>
-                            <option value="60">60 Minutes (Full Consultation / Surgery)</option>
+                            <option value="45">45 Minutes (Detailed Consultation)</option>
+                            <option value="60">60 Minutes (Minor Surgery/Long Procedure)</option>
                         </select>
                         <span asp-validation-for="DurationInMinutes" class="text-danger fw-bold small mt-1 d-block"></span>
                     </div>
                 </div>
 
-                <hr class="my-4 border-3 border-dark opacity-100" />
+                <hr class="my-4 border-2 border-dark" />
 
-                <div class="d-flex justify-content-between align-items-center mt-4">
-                    <a asp-action="Index" class="btn btn-light border border-3 border-dark fw-bold fs-5 px-4" style="box-shadow: 4px 4px 0px #1a1a1a; transition: transform 0.1s;" onmouseover="this.style.transform='translate(-2px, -2px)'" onmouseout="this.style.transform='translate(0, 0)'">
-                        ⬅️ Cancel
+                <div class="d-flex justify-content-between">
+                    <a asp-action="Index" class="btn btn-outline-dark px-4 fw-bold border-3 rounded-0">
+                        ⬅ Back to Schedule
                     </a>
-
-                    <button type="submit" class="btn btn-primary border border-3 border-dark fw-bold fs-5 px-5" style="box-shadow: 4px 4px 0px #1a1a1a; transition: transform 0.1s;" onmouseover="this.style.transform='translate(-2px, -2px)'" onmouseout="this.style.transform='translate(0, 0)'">
+                    <button type="submit" class="btn btn-success px-5 fw-bold border-3 rounded-0 shadow-sm" style="box-shadow: 4px 4px 0px #000 !important;">
                         ✅ Confirm Booking
                     </button>
                 </div>
-
             </form>
         </div>
     </div>
 </div>
 
-<style>
-    .neo-input:focus {
-        outline: none;
-        box-shadow: 6px 6px 0px #0d6efd !important;
-        border-color: #0d6efd !important;
-        transform: translateY(-2px);
-        transition: all 0.2s;
-    }
-</style>
-
 @section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
+
+    <script>
+        $(document).ready(function() {
+            $('.select-search').select2({
+                placeholder: "-- Search here --",
+                allowClear: true,
+                width: '100%'
+            });
+
+            $('.select2-container--default .select2-selection--single').css({
+                'border': '3px solid #1a1a1a',
+                'border-radius': '0px',
+                'height': '50px',
+                'padding-top': '8px',
+                'font-weight': 'bold',
+                'box-shadow': '4px 4px 0px #1a1a1a'
+            });
+        });
+    </script>
+
+    <style>
+        .select2-container--default.select2-container--focus .select2-selection--single {
+            border: 3px solid #37bd74 !important;
+            box-shadow: 6px 6px 0px #37bd74 !important;
+        }
+
+        .select2-dropdown {
+            border: 3px solid #1a1a1a !important;
+            border-radius: 0px !important;
+        }
+
+        .select2-search__field {
+            border: 2px solid #1a1a1a !important;
+            border-radius: 0px !important;
+            margin-bottom: 5px;
+        }
+    </style>
 }
