@@ -48,6 +48,11 @@ A comprehensive, full-stack enterprise solution developed using **ASP.NET Core M
 ### Patient Medical History
 <img width="1893" height="833" alt="image" src="https://github.com/user-attachments/assets/30fbfaad-b486-40ac-ba69-316ce320c5f1" />
 
+
+### Accessed Pages Authorization
+<img width="1882" height="884" alt="image" src="https://github.com/user-attachments/assets/59a21902-f311-42fd-9c09-0705c681902c" />
+
+
 ---
 
 ## Development Roadmap
