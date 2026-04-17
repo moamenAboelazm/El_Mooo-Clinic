@@ -29,7 +29,7 @@ namespace El_Mooo_Clinic.Services.Implementations
             var schedule = (await _unitOfWork.DoctorSchedules.FindAsync(s => s.DoctorID == dto.DoctorID && s.DayOfWeek == day)).FirstOrDefault();
 
             if (schedule == null || !schedule.IsAvailable)
-                throw new Exception("Doctor is not available on this day.");
+                throw new Exception("Doctor is not available on this Time.");
 
             var lastAppointment = (await _unitOfWork.Appointments.FindAsync(a =>
                 a.DoctorID == dto.DoctorID &&
