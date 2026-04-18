@@ -27,6 +27,16 @@ A comprehensive, full-stack enterprise solution developed using **ASP.NET Core M
 
 ## Project Previews
 
+
+### APIs
+
+<img width="1891" height="864" alt="image" src="https://github.com/user-attachments/assets/948c5857-2b80-492f-b4d9-84efb67b73c2" />
+<img width="1838" height="799" alt="Screenshot 2026-04-19 012509" src="https://github.com/user-attachments/assets/07a63163-e821-4816-a224-041e2098fe44" />
+<img width="1865" height="876" alt="Screenshot 2026-04-19 012447" src="https://github.com/user-attachments/assets/3f062858-d3b0-452c-9706-09833194a8dd" />
+<img width="1861" height="895" alt="Screenshot 2026-04-19 012613" src="https://github.com/user-attachments/assets/21dc148e-761b-4aa3-a4eb-b583f5e4c68c" />
+
+
+
 ### Accessed Pages Authorization
 <img width="1888" height="872" alt="image" src="https://github.com/user-attachments/assets/10867bdc-8e8e-4a17-accb-ae9c126a1307" />
 <img width="1882" height="884" alt="image" src="https://github.com/user-attachments/assets/59a21902-f311-42fd-9c09-0705c681902c" />
